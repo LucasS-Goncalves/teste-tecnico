@@ -1,0 +1,12 @@
+<header class="header" [ngClass]="{'menuOpened': isMenuOpened}">
+  <img src="../../../assets/images/empresa-icon.png" class="company-icon" alt="Ícone generalista de uma empresa">
+  <h2 class="title">CadastreMais</h2>
+  <button class="menu-button" (click)="menuToggle()">
+    <img src="../../../assets/images/icon-hamburger.svg" class="open-menu" alt="Open menu icon">
+    <img src="../../../assets/images/icon-close.svg" class="close-menu" alt="Close menu icon">
+  </button>
+  <nav class="nav">
+    <a>Cadastrar</a>
+    <a>Clientes</a>
+  </nav>
+</header>
