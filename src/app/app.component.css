@@ -1,0 +1,12 @@
+:host{
+  display: grid;
+  grid-template-columns: 290px auto;
+}
+
+.navbar{
+  grid-column: 1 / 2;
+}
+
+.pages{
+  grid-column: 2;
+}

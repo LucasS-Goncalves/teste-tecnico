@@ -5,7 +5,8 @@
   --blue-1: #B4D4FF;
   --blue-2: #86B6F6;
   --blue-3: #176B87;
-
+  --white: #FFFFFF;
+  --black: #000000;
 }
 
 *{
@@ -17,6 +18,10 @@
 
 html{
   background-color: var(--background-color);
+}
+
+body{
+  overflow-x: hidden;
 }
 
 p,h1,h2,h3,h4,h5,h6{

@@ -5,8 +5,25 @@
     <img src="../../../assets/images/icon-hamburger.svg" class="open-menu" alt="Open menu icon">
     <img src="../../../assets/images/icon-close.svg" class="close-menu" alt="Close menu icon">
   </button>
-  <nav class="nav">
-    <a>Cadastrar</a>
-    <a>Clientes</a>
+  <nav class="nav nav-mobile">
+    <a class="link">
+      <img src="../../../assets/images/cadastro-icon.png" alt="" class="link-icon">
+      Cadastrar
+    </a>
+    <a class="link">
+      <img src="../../../assets/images/clientes-icon.png" alt="" class="link-icon">
+      Clientes
+    </a>
   </nav>
+  <nav class="nav nav-desktop">
+    <a class="link">
+      <img src="../../../assets/images/cadastro-icon.png" alt="" class="link-icon">
+      Cadastrar
+    </a>
+    <a class="link">
+      <img src="../../../assets/images/clientes-icon.png" alt="" class="link-icon">
+      Clientes
+    </a>
+  </nav>
+  <div class="overlay" (click)="menuToggle()"></div>
 </header>
