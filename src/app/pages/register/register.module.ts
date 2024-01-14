@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import { RouterModule } from '@angular/router';
 import { registerRoutes } from './register.routes';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { registerRoutes } from './register.routes';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(registerRoutes)
+    RouterModule.forChild(registerRoutes),
+    ReactiveFormsModule
   ]
 })
 export class RegisterModule { }

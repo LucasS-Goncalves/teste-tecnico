@@ -5,6 +5,7 @@
   --blue-1: #B4D4FF;
   --blue-2: #86B6F6;
   --blue-3: #176B87;
+  --dark-blue: #002147;
   --white: #FFFFFF;
   --black: #000000;
 }
@@ -16,12 +17,10 @@
   box-sizing: border-box;
 }
 
-html{
+html, body{
   background-color: var(--background-color);
-}
-
-body{
   overflow-x: hidden;
+  height: 100%;
 }
 
 p,h1,h2,h3,h4,h5,h6{

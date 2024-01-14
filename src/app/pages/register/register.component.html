@@ -1,1 +1,68 @@
-<p>register works!</p>
+<h1 class="title" (click)="onSubmit()">Cadastrar cliente</h1>
+<form class="form" [formGroup]="registerClientForm">
+  <div class="container personal-data-container">
+    <h2 class="container-title">
+      <img src="../../../assets/images/personal-data-icon.png" class="icon" alt="Ícone que simboliza dados pessoais">
+      Dados Pessoais
+    </h2>
+    <div class="inputs-container">
+      <div class="input-group">
+        <input type="text" id="name" required formControlName="name">
+        <label for="name" class="label">Nome completo</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="cpf" required formControlName="cpf">
+        <label for="cpf" class="label">CPF</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="telefone" required formControlName="telefoneFixo">
+        <label for="telefone" class="label">Telefone fixo</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="celular" required formControlName="celular">
+        <label for="celular" class="label">Celular</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="container address-container">
+    <h2 class="container-title">
+      <img src="../../../assets/images/address-icon.png" class="icon" alt="Ícone que simboliza um endereço">
+      Endereço
+    </h2>
+    <div class="inputs-container">
+      <div class="input-group">
+        <input type="text" id="cep" required (blur)="getCepInfo('58052310')">
+        <label for="cep" class="label">CEP</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="logradouro" required>
+        <label for="logradouro" class="label">Logradouro</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="numero" required>
+        <label for="numero" class="label">Número</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="completo" required>
+        <label for="completo" class="label">Complemento</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="referencia" required>
+        <label for="referencia" class="label">Referência</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="bairro" required>
+        <label for="bairro" class="label">Bairro</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="cidade" required>
+        <label for="cidade" class="label">Cidade</label>
+      </div>
+      <div class="input-group">
+        <input type="text" id="Estado" required>
+        <label for="Estado" class="label">Estado</label>
+      </div>
+    </div>
+  </div>
+</form>

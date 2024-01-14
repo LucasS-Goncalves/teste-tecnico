@@ -1,12 +1,15 @@
-:host{
-  display: grid;
-  grid-template-columns: 290px auto;
-}
+@media(min-width: 1024px){
 
-.navbar{
-  grid-column: 1 / 2;
-}
+  :host{
+    display: grid;
+    grid-template-columns: 290px auto;
+  }
 
-.pages{
-  grid-column: 2;
+  .navbar{
+    grid-column: 1 / 2;
+  }
+
+  .pages{
+    grid-column: 2;
+  }
 }
