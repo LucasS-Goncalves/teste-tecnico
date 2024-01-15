@@ -1,0 +1,102 @@
+<h2 class="title">{{ client?.nome }}</h2>
+<div class="container">
+  <div class="container-group">
+    <h3 class="container-group-title">
+      Dados pessoais
+    </h3>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        CPF
+      </h4>
+      <p>
+        {{ client?.cpf }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Telefone
+      </h4>
+      <p>
+        {{ client?.telefone }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Celular
+      </h4>
+      <p>
+        {{ client?.celular }}
+      </p>
+    </div>
+  </div>
+
+  <div class="container-group">
+    <h3 class="container-group-title">
+        Endereço
+    </h3>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        CEP
+      </h4>
+      <p>
+        {{ client?.cep }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Logradouro
+      </h4>
+      <p>
+        {{ client?.logradouro }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Número
+      </h4>
+      <p>
+        {{ client?.numero }}
+      </p>
+    </div>
+    <div class="category-container" *ngIf="client?.complemento!.length > 1">
+      <h4 class="category-container-title">
+        Complemento
+      </h4>
+      <p>
+        {{ client?.complemento }}
+      </p>
+    </div>
+    <div class="category-container" *ngIf="client?.referencia!.length > 1">
+      <h4 class="category-container-title">
+        Referência
+      </h4>
+      <p>
+        {{ client?.referencia }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Bairro
+      </h4>
+      <p>
+        {{ client?.bairro }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Cidade
+      </h4>
+      <p>
+        {{ client?.cidade }}
+      </p>
+    </div>
+    <div class="category-container">
+      <h4 class="category-container-title">
+        Estado
+      </h4>
+      <p>
+        {{ client?.estado }}
+      </p>
+    </div>
+  </div>
+</div>

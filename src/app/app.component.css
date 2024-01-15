@@ -1,15 +1,26 @@
+:host{
+  display: grid;
+  grid-template-rows: 70px 1fr;
+}
+
+.pages{
+  padding: 30px 0;
+  height: 100%;
+}
+
 @media(min-width: 1024px){
 
   :host{
     display: grid;
-    grid-template-columns: 290px auto;
+    grid-template-columns: 290px 1fr;
+    grid-template-rows: none;
   }
 
   .navbar{
-    grid-column: 1 / 2;
+    width: 290px;
   }
 
   .pages{
-    grid-column: 2;
+    width: calc(100vw - 290px);
   }
 }

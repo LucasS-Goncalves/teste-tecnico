@@ -6,7 +6,9 @@
   --blue-2: #86B6F6;
   --blue-3: #176B87;
   --dark-blue: #002147;
+  --blue-2-hover: rgb(87, 150, 233);
   --white: #FFFFFF;
+  --white-2: rgba(237, 237, 237, 0.701);
   --black: #000000;
 }
 
@@ -20,10 +22,13 @@
 html, body{
   background-color: var(--background-color);
   overflow-x: hidden;
-  height: 100%;
 }
 
 p,h1,h2,h3,h4,h5,h6{
   margin: 0;
   padding: 0;
+}
+
+a{
+  text-decoration: none;
 }

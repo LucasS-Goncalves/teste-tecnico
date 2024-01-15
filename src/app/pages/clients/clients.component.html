@@ -1,1 +1,27 @@
-<p>clients works!</p>
+
+<h2 class="title">Clientes</h2>
+<div class="input-group">
+  <input type="text" placeholder="Nome ou CPF" #searchString (keyup)="searchClient()">
+</div>
+<table class="table" *ngIf="clients.length > 0">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th><img src="../../../assets/images/garbage-icon.png" alt="" class="lixo-icon"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td routerLink="{{client.cpf}}">{{ client.nome }}</td>
+      <td routerLink="{{client.cpf}}">{{ client.cpf }}</td>
+      <td class="deleteIcon" (click)="deleteClient(client.cpf)">X</td>
+    </tr>
+  </tbody>
+</table>
+<h5 *ngIf="!showNotFoundMessage()">
+    Não há clientes cadastrados
+</h5>
+<h5 *ngIf="showNotFoundMessage() && clients.length === 0">
+  Nenhum cliente com esse nome ou CPF foi encontrado
+</h5>

@@ -1,0 +1,135 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 29px;
+  margin: 30px 0;
+  animation: load .8s;
+}
+
+@keyframes load{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.title{
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.input-group{
+  width: 75%;
+  height: 45px;
+}
+
+.input-group input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 10px;
+  border: none;
+  border: 1px solid var(--blue-2);
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--dark-blue);
+}
+
+.input-group input::placeholder{
+  color: var(--blue-2);
+}
+
+.table{
+  border-collapse: collapse;
+  font-size: .9375rem;
+  width: 80%;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr{
+  background-color: var(--blue-2);
+  color: var(--white);
+  text-align: left;
+  font-weight: 600;
+}
+
+.table tbody tr{
+  transition: .2s;
+}
+
+.table thead tr th,
+.table tbody tr td{
+  padding: 12px 15px;
+}
+
+.table tbody td{
+  cursor: pointer;
+}
+
+.table thead tr th .lixo-icon{
+  width: 15px;
+}
+
+.table thead tr th:last-of-type{
+  text-align: center;
+}
+
+.table tbody tr .deleteIcon{
+  padding: 5px 8px;
+  text-align: center;
+  color: red;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.table tbody tr{
+  border-bottom: 1px solid var(--blue-2-hover);
+  background-color: var(--white);
+}
+
+.table tbody tr:nth-of-type(even){
+  background-color: var(--white-2);
+}
+
+.table tbody tr:last-of-type{
+  border-bottom: 2px solid var(--blue-2-hover);
+}
+
+.table tbody tr .deleteIcon:hover{
+  font-size: 1.4rem;
+}
+
+.table tbody tr:hover{
+  background-color: var(--blue-1);
+}
+
+h5{
+  color: var(--blue-3);
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+@media(min-width: 700px){
+
+  .input-group{
+    max-width: 500px;
+  }
+
+  .table{
+    max-width: 600px;
+  }
+
+  .table thead tr th,
+  .table tbody tr td{
+    padding: 15px 18px;
+  }
+}

@@ -6,21 +6,21 @@
     <img src="../../../assets/images/icon-close.svg" class="close-menu" alt="Close menu icon">
   </button>
   <nav class="nav nav-mobile">
-    <a class="link">
+    <a class="link" routerLink="/register" (click)="menuToggle()" routerLinkActive="active">
       <img src="../../../assets/images/cadastro-icon.png" alt="" class="link-icon">
       Cadastrar
     </a>
-    <a class="link">
+    <a class="link" routerLink="/clients" (click)="menuToggle()" routerLinkActive="active">
       <img src="../../../assets/images/clientes-icon.png" alt="" class="link-icon">
       Clientes
     </a>
   </nav>
   <nav class="nav nav-desktop">
-    <a class="link">
+    <a class="link" routerLink="/register" routerLinkActive="active">
       <img src="../../../assets/images/cadastro-icon.png" alt="" class="link-icon">
       Cadastrar
     </a>
-    <a class="link">
+    <a class="link" routerLink="/clients" routerLinkActive="active">
       <img src="../../../assets/images/clientes-icon.png" alt="" class="link-icon">
       Clientes
     </a>

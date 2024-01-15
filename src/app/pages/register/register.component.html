@@ -1,68 +1,149 @@
 <h1 class="title" (click)="onSubmit()">Cadastrar cliente</h1>
-<form class="form" [formGroup]="registerClientForm">
-  <div class="container personal-data-container">
+<form class="form" [formGroup]="registerClientForm" (ngSubmit)="this.registerClientForm.valid ? onSubmit() : ''">
+  <div class="container personal-data-container" [formGroupName]="'dadosPessoais'">
     <h2 class="container-title">
       <img src="../../../assets/images/personal-data-icon.png" class="icon" alt="Ícone que simboliza dados pessoais">
       Dados Pessoais
     </h2>
     <div class="inputs-container">
-      <div class="input-group">
-        <input type="text" id="name" required formControlName="name">
+
+      <div class="input-group nome" [class.invalid-input]="registerClientForm.get('dadosPessoais.nome')?.errors && registerClientForm.get('dadosPessoais.nome')?.touched">
+        <input type="text" id="name" required formControlName="nome">
         <label for="name" class="label">Nome completo</label>
+        <span class="invalid-input" *ngIf="!registerClientForm.get('dadosPessoais.nome')?.errors?.['required'] && registerClientForm.get('dadosPessoais.nome')?.errors?.['minlength'] && registerClientForm.get('dadosPessoais.nome')?.errors && registerClientForm.get('dadosPessoais.nome')?.touched">Nome inválido</span>
+        <span class="invalid-input" *ngIf="registerClientForm.get('dadosPessoais.nome')?.errors?.['required'] && registerClientForm.get('dadosPessoais.nome')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
+
+      <div class="input-group cpf" [class.invalid-input]="registerClientForm.get('dadosPessoais.cpf')?.errors && registerClientForm.get('dadosPessoais.cpf')?.touched">
         <input type="text" id="cpf" required formControlName="cpf">
         <label for="cpf" class="label">CPF</label>
+        <span class="invalid-input" *ngIf="!registerClientForm.get('dadosPessoais.cpf')?.errors?.['required'] && registerClientForm.get('dadosPessoais.cpf')?.errors?.['pattern'] && registerClientForm.get('dadosPessoais.cpf')?.touched">CPF inválido</span>
+        <span class="invalid-input" *ngIf="registerClientForm.get('dadosPessoais.cpf')?.errors?.['required'] && registerClientForm.get('dadosPessoais.cpf')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
-        <input type="text" id="telefone" required formControlName="telefoneFixo">
+
+      <div class="input-group telefone" [class.invalid-input]="registerClientForm.get('dadosPessoais.telefone')?.errors && registerClientForm.get('dadosPessoais.telefone')?.touched">
+        <input type="tel" id="telefone" required formControlName="telefone">
         <label for="telefone" class="label">Telefone fixo</label>
+        <span class="invalid-input" *ngIf="!registerClientForm.get('dadosPessoais.telefone')?.errors?.['required'] && registerClientForm.get('dadosPessoais.telefone')?.errors?.['pattern'] && registerClientForm.get('dadosPessoais.telefone')?.touched">Telefone inválido</span>
+        <span class="invalid-input" *ngIf="registerClientForm.get('dadosPessoais.telefone')?.errors?.['required'] && registerClientForm.get('dadosPessoais.telefone')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
+
+      <div class="input-group celular" [class.invalid-input]="registerClientForm.get('dadosPessoais.celular')?.errors && registerClientForm.get('dadosPessoais.celular')?.touched">
         <input type="text" id="celular" required formControlName="celular">
         <label for="celular" class="label">Celular</label>
+        <span class="invalid-input" *ngIf="!registerClientForm.get('dadosPessoais.celular')?.errors?.['required'] && registerClientForm.get('dadosPessoais.celular')?.errors?.['pattern'] && registerClientForm.get('dadosPessoais.celular')?.touched">Celular inválido</span>
+        <span class="invalid-input" *ngIf="registerClientForm.get('dadosPessoais.celular')?.errors?.['required'] && registerClientForm.get('dadosPessoais.celular')?.touched">Campo obrigatório</span>
       </div>
     </div>
   </div>
 
-  <div class="container address-container">
+  <div class="container address-container" [formGroupName]="'endereco'">
     <h2 class="container-title">
       <img src="../../../assets/images/address-icon.png" class="icon" alt="Ícone que simboliza um endereço">
       Endereço
     </h2>
     <div class="inputs-container">
-      <div class="input-group">
-        <input type="text" id="cep" required (blur)="getCepInfo('58052310')">
+
+      <div class="input-group cep" [class.invalid-input]="registerClientForm.get('endereco.cep')?.errors && registerClientForm.get('endereco.cep')?.touched">
+        <input type="text" id="cep" required formControlName="cep" (keyup)="getCepInfo()">
         <label for="cep" class="label">CEP</label>
+        <span class="invalid-input" *ngIf="!registerClientForm.get('endereco.cep')?.errors?.['required'] && registerClientForm.get('endereco.cep')?.errors?.['pattern'] && registerClientForm.get('endereco.cep')?.touched">CEP inválido</span>
+        <span class="invalid-input" *ngIf="registerClientForm.get('endereco.cep')?.errors?.['required'] && registerClientForm.get('endereco.cep')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
-        <input type="text" id="logradouro" required>
+
+      <div class="input-group logradouro" [class.invalid-input]="registerClientForm.get('endereco.logradouro')?.errors && registerClientForm.get('endereco.logradouro')?.touched">
+        <input type="text" id="logradouro" required formControlName="logradouro">
         <label for="logradouro" class="label">Logradouro</label>
+        <span class="invalid-input" *ngIf="registerClientForm.get('endereco.logradouro')?.errors?.['required'] && registerClientForm.get('endereco.logradouro')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
-        <input type="text" id="numero" required>
+
+      <div class="input-group numero" [class.invalid-input]="registerClientForm.get('endereco.numero')?.errors && registerClientForm.get('endereco.numero')?.touched">
+        <input type="text" id="numero" required formControlName="numero">
         <label for="numero" class="label">Número</label>
+        <span class="invalid-input" *ngIf="!registerClientForm.get('endereco.numero')?.errors?.['required'] && registerClientForm.get('endereco.numero')?.errors?.['pattern'] && registerClientForm.get('endereco.numero')?.touched">Nº inválido</span>
+        <span class="invalid-input" *ngIf="registerClientForm.get('endereco.numero')?.errors?.['required'] && registerClientForm.get('endereco.numero')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
-        <input type="text" id="completo" required>
+
+      <div class="input-group complemento" [class.labelForOptionalInputs]="registerClientForm.get('endereco.complemento')?.value.length > 0">
+        <input type="text" id="completo" formControlName="complemento">
         <label for="completo" class="label">Complemento</label>
       </div>
-      <div class="input-group">
-        <input type="text" id="referencia" required>
+
+      <div class="input-group referencia" [class.labelForOptionalInputs]="registerClientForm.get('endereco.referencia')?.value.length > 0">
+        <input type="text" id="referencia" formControlName="referencia">
         <label for="referencia" class="label">Referência</label>
       </div>
-      <div class="input-group">
-        <input type="text" id="bairro" required>
+
+      <div class="input-group bairro" [class.invalid-input]="registerClientForm.get('endereco.bairro')?.errors && registerClientForm.get('endereco.bairro')?.touched">
+        <input type="text" id="bairro" required formControlName="bairro">
         <label for="bairro" class="label">Bairro</label>
+        <span class="invalid-input" *ngIf="registerClientForm.get('endereco.bairro')?.errors && registerClientForm.get('endereco.bairro')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
-        <input type="text" id="cidade" required>
+
+      <div class="input-group cidade" [class.invalid-input]="registerClientForm.get('endereco.cidade')?.errors && registerClientForm.get('endereco.cidade')?.touched">
+        <input type="text" id="cidade" required formControlName="cidade">
         <label for="cidade" class="label">Cidade</label>
+        <span class="invalid-input" *ngIf="registerClientForm.get('endereco.cidade')?.errors && registerClientForm.get('endereco.cidade')?.touched">Campo obrigatório</span>
       </div>
-      <div class="input-group">
-        <input type="text" id="Estado" required>
-        <label for="Estado" class="label">Estado</label>
+
+      <div class="input-group estado" [class.invalid-input]="registerClientForm.get('endereco.estado')?.errors && registerClientForm.get('endereco.estado')?.touched">
+        <select name="estado" class="estados-input" formControlName="estado">
+          <option value="" selected>Estado</option>
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AP">AP</option>
+          <option value="AM">AM</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MT">MT</option>
+          <option value="MS">MS</option>
+          <option value="MG">MG</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PR">PR</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RS">RS</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="SC">SC</option>
+          <option value="SP">SP</option>
+          <option value="SE">SE</option>
+          <option value="TO">TO</option>
+        </select>
+        <span class="invalid-input" *ngIf="registerClientForm.get('endereco.estado')?.errors && registerClientForm.get('endereco.estado')?.touched">Campo obrigatório</span>
       </div>
     </div>
   </div>
+  <div class="button-group" [class.disabled]="!registerClientForm.valid">
+    <button type="button" (click)="reset()">Resetar</button>
+    <button class="cadastrar-button" type="submit" [disabled]="!this.registerClientForm.valid">Cadastrar</button>
+  </div>
 </form>
+<div class="notifications" *ngIf="showSucessToast">
+  <div class="toast success">
+    <img src="../../../assets/images/success-icon.png" alt="ícone de sucesso" style="width: 25px;">
+    <div class="content">
+      <div class="title">Sucesso</div>
+      <span class="message">Usuário cadastrado</span>
+    </div>
+    <span class="closeToast" (click)="closeSuccessToast()">X</span>
+  </div>
+</div>
+
+<div class="notifications" *ngIf="showErrorToast">
+  <div class="toast error">
+    <img src="../../../assets/images/error-symbol.png" alt="Ícode de erro ou atenção" style="width: 25px;">
+    <div class="content">
+      <div class="title">Erro</div>
+      <span class="message">CPF já cadastrado</span>
+    </div>
+    <span class="closeToast" (click)="closeErrorToast()">X</span>
+  </div>
+</div>
