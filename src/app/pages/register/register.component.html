@@ -29,7 +29,7 @@
       </div>
 
       <div class="input-group celular" [class.invalid-input]="registerClientForm.get('dadosPessoais.celular')?.errors && registerClientForm.get('dadosPessoais.celular')?.touched">
-        <input type="text" id="celular" required formControlName="celular">
+        <input type="tel" id="celular" required formControlName="celular">
         <label for="celular" class="label">Celular</label>
         <span class="invalid-input" *ngIf="!registerClientForm.get('dadosPessoais.celular')?.errors?.['required'] && registerClientForm.get('dadosPessoais.celular')?.errors?.['pattern'] && registerClientForm.get('dadosPessoais.celular')?.touched">Celular inválido</span>
         <span class="invalid-input" *ngIf="registerClientForm.get('dadosPessoais.celular')?.errors?.['required'] && registerClientForm.get('dadosPessoais.celular')?.touched">Campo obrigatório</span>
